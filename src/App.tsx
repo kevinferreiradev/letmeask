@@ -1,9 +1,19 @@
+import { BrowserRouter, Route } from 'react-router-dom'
+
 import { Home } from "./pages/Home";
+import { NewRom } from "./pages/NewRom";
+
+import { AuthContextProvider } from './context/AuthContext'
 
 
 function App() {
   return (
-    <Home />
+   <BrowserRouter>
+      <AuthContextProvider>
+          <Route path="/" exact component={Home} />
+          <Route path="/rom/new" component={NewRom} /> 
+      </AuthContextProvider> 
+   </BrowserRouter>
   );
 }
 
